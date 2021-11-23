@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Home</class>
+ <widget class="QWidget" name="Home">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>626</width>
+    <height>476</height>
+   </rect>
+  </property>
+  <property name="cursor">
+   <cursorShape>ArrowCursor</cursorShape>
+  </property>
+  <property name="windowTitle">
+   <string>Main Window</string>
+  </property>
+  <property name="autoFillBackground">
+   <bool>true</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget#Home{
+	/*background-color:rgb(242, 242, 242);*/
+}
+QFrame{
+	background-color:rgb(255,255,255);
+}
+QScrollArea#fousAreaScroll{
+background-color: qlineargradient(spread:reflect, x1:0.984015, y1:0.049, x2:1, y2:1, stop:0 rgba(23, 36, 159, 255), stop:1 rgba(191, 45, 194, 255));
+}
+QPushButton{
+background-color:qlineargradient(spread:pad, x1:0.939316, y1:0.074, x2:1, y2:1, stop:0 rgba(91, 75, 188, 255), stop:1 rgba(52, 95, 179, 255))
+}
+QPushButton#settingBtn{
+	
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 0));
+}
+QLabel#templateLabel{
+	background-color:qlineargradient(spread:pad, x1:0.939316, y1:0.074, x2:1, y2:1, stop:0 rgba(91, 75, 188, 255), stop:1 rgba(52, 95, 179, 255));
+	padding-right : 90px;
+	padding-left : 90px;
+	padding-top :10px;
+	padding-bottom:10px;
+
+	
+}
+</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>10</number>
+   </property>
+   <item>
+    <layout class="QHBoxLayout" name="LanuWindMenuPane">
+     <property name="leftMargin">
+      <number>100</number>
+     </property>
+     <property name="topMargin">
+      <number>10</number>
+     </property>
+     <property name="rightMargin">
+      <number>100</number>
+     </property>
+     <item>
+      <widget class="QPushButton" name="homeBtn">
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"> text-decoration: underline;</string>
+       </property>
+       <property name="text">
+        <string>Home</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../assets/home.png</normaloff>../assets/home.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>25</width>
+         <height>25</height>
+        </size>
+       </property>
+       <property name="checkable">
+        <bool>false</bool>
+       </property>
+       <property name="autoRepeat">
+        <bool>false</bool>
+       </property>
+       <property name="autoExclusive">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="srcntSavedBtn">
+       <property name="text">
+        <string>Recently Saved</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../assets/clock.png</normaloff>../assets/clock.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>25</width>
+         <height>25</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="aboutBtn">
+       <property name="text">
+        <string>About</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="helpBtn">
+       <property name="text">
+        <string>Help</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../assets/question-circle.png</normaloff>../assets/question-circle.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>25</width>
+         <height>25</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item alignment="Qt::AlignHCenter">
+    <widget class="QLabel" name="templateLabel">
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string>Templates</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QScrollArea" name="fousAreaScroll">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel{
+	
+	color: rgb(0, 0, 0);
+}</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Sunken</enum>
+     </property>
+     <property name="lineWidth">
+      <number>1</number>
+     </property>
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents_2">
+      <property name="geometry">
+       <rect>
+        <x>-333</x>
+        <y>-136</y>
+        <width>930</width>
+        <height>528</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <property name="topMargin">
+        <number>100</number>
+       </property>
+       <property name="bottomMargin">
+        <number>100</number>
+       </property>
+       <item>
+        <widget class="QFrame" name="simpleDrawingFrame_2">
+         <layout class="QVBoxLayout" name="simpleDrawingFrame">
+          <item alignment="Qt::AlignHCenter">
+           <widget class="QLabel" name="imgLabelSimpleDrawing">
+            <property name="minimumSize">
+             <size>
+              <width>300</width>
+              <height>300</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>300</width>
+              <height>300</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="pixmap">
+             <pixmap>../assets/SimpleDrawingThumbnail.png</pixmap>
+            </property>
+            <property name="scaledContents">
+             <bool>true</bool>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="wordWrap">
+             <bool>false</bool>
+            </property>
+            <property name="margin">
+             <number>20</number>
+            </property>
+           </widget>
+          </item>
+          <item alignment="Qt::AlignHCenter|Qt::AlignTop">
+           <widget class="QLabel" name="label_7">
+            <property name="text">
+             <string>Simple Drawing</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="whiteBoardFrame">
+         <layout class="QVBoxLayout" name="whiteboardVBox">
+          <item alignment="Qt::AlignHCenter">
+           <widget class="QLabel" name="imgLabelWhiteBoard">
+            <property name="minimumSize">
+             <size>
+              <width>300</width>
+              <height>300</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>300</width>
+              <height>300</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="pixmap">
+             <pixmap>../assets/WhiteBoardThumbNail.png</pixmap>
+            </property>
+            <property name="scaledContents">
+             <bool>true</bool>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="wordWrap">
+             <bool>false</bool>
+            </property>
+            <property name="margin">
+             <number>20</number>
+            </property>
+           </widget>
+          </item>
+          <item alignment="Qt::AlignHCenter|Qt::AlignTop">
+           <widget class="QLabel" name="label_9">
+            <property name="text">
+             <string>White Board</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="uidesignFrame">
+         <layout class="QVBoxLayout" name="uidesignVBox">
+          <item alignment="Qt::AlignHCenter">
+           <widget class="QLabel" name="imgLabelUIDesgin">
+            <property name="minimumSize">
+             <size>
+              <width>300</width>
+              <height>300</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>300</width>
+              <height>300</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="pixmap">
+             <pixmap>../assets/UiDesignThumbNail.png</pixmap>
+            </property>
+            <property name="scaledContents">
+             <bool>true</bool>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="wordWrap">
+             <bool>false</bool>
+            </property>
+            <property name="margin">
+             <number>20</number>
+            </property>
+           </widget>
+          </item>
+          <item alignment="Qt::AlignHCenter|Qt::AlignTop">
+           <widget class="QLabel" name="label_11">
+            <property name="text">
+             <string>UiDesign</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="BtnPane">
+     <item alignment="Qt::AlignRight">
+      <widget class="QPushButton" name="checkPermsnBtn">
+       <property name="text">
+        <string>Check Permissions</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../assets/checkpermissionIcon.png</normaloff>../assets/checkpermissionIcon.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>25</width>
+         <height>25</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item alignment="Qt::AlignLeft">
+      <widget class="QPushButton" name="settingBtn">
+       <property name="text">
+        <string>Settings</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../assets/settingsIcon.png</normaloff>../assets/settingsIcon.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>25</width>
+         <height>25</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
