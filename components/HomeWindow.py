@@ -23,6 +23,9 @@ class Ui_Home(object):
 "QFrame{\n"
 "    background-color:rgb(255,255,255);\n"
 "}\n"
+"QFrame:hover {\n"
+"    background-color: rgb(85, 111, 255); \n"
+"}\n"
 "QScrollArea#fousAreaScroll{\n"
 "background-color: qlineargradient(spread:reflect, x1:0.984015, y1:0.049, x2:1, y2:1, stop:0 rgba(23, 36, 159, 255), stop:1 rgba(191, 45, 194, 255));\n"
 "}\n"
@@ -100,7 +103,7 @@ class Ui_Home(object):
         self.fousAreaScroll.setWidgetResizable(True)
         self.fousAreaScroll.setObjectName("fousAreaScroll")
         self.scrollAreaWidgetContents_2 = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(-333, -136, 930, 528))
+        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, -182, 960, 538))
         self.scrollAreaWidgetContents_2.setObjectName("scrollAreaWidgetContents_2")
         self.horizontalLayout = QtWidgets.QHBoxLayout(self.scrollAreaWidgetContents_2)
         self.horizontalLayout.setContentsMargins(-1, 100, -1, 100)
