@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+    # -*- coding: utf-8 -*-
 
 # Form implementation generated from reading ui file 'Launcher.ui'
 #
@@ -95,4 +95,5 @@ if __name__ == "__main__":
     ui = Ui_launcherFrame()
     ui.setupUi(launcherFrame)
     launcherFrame.show()
+    
     sys.exit(app.exec_())
