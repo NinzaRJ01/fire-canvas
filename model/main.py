@@ -14,6 +14,6 @@ print("Home: ")
 r=HomeWindowController.Runner()
 r.show()
 # Debug :
-# timer.timeout.connect(r.changeTemplateName)
+# timer.timeout.connect(r.changeToRecentlySaved)
 # timer.start(1000)
 app.exec_()
