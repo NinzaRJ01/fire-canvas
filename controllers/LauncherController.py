@@ -7,14 +7,18 @@ from components.Launcher import Ui_launcherFrame
 # Task Of Launcher Controlller 
 # 
 # Move Progress Bar on Checking Camera And Mic Peripheral
-def run(app):
+def run():
+    
+    
     
     launcherFrame = QWidget()
     ui = Ui_launcherFrame()
+    ui.setupUi(launcherFrame)
+    
     import time
     import cv2 as cv 
     
-    ui.setupUi(launcherFrame)
+    
     launcherFrame.setWindowFlags(Qt.SplashScreen|Qt.FramelessWindowHint)
     launcherFrame.setGeometry(200,200,400,400)
     launcherFrame.show()
@@ -34,12 +38,11 @@ def run(app):
             time.sleep(0.05)
     testDevice(0)
     # moveProgressBar(ui.progressBar)
-    QTimer.singleShot(4000, app.quit)
+    QTimer.singleShot(4000,launcherFrame.close)
+   
 
 
 if __name__=="__main__":
+    run()
     
     
-    app = QApplication(sys.argv)
-    run() 
-    app.exec_()
