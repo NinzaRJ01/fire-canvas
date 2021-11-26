@@ -6,7 +6,7 @@ sys.path.append("..")
 from components.HomeWindow import Ui_Home
 from components.RecentlySavedWid import Ui_recentlySavedFrame
 from components.AboutWidget import Ui_aboutWidget
-
+from components.BoardPaneWidget import Ui_boardPane
 class Runner():
     def __init__(self):
        
@@ -18,11 +18,12 @@ class Runner():
         self.Home.showMaximized()
         # Default Intialized Values
         self.homeWidgets = []
-        self.curnt ="1"
+        self.curnt="5"
         layout=self.ui.horizontalLayout
-        for i in reversed(range(layout.count())): 
-            item = layout.itemAt(i).widget()
-            self.homeWidgets.append(QWidget(item))
+        # timer=QTimer()
+        # timer.timeout.connect(self.changeToHome)
+        self.changeToHome()
+        
         
         # Will Setup Mouse Press Event For Navigation Pane Buttons
         self.ui.srcntSavedBtn.clicked.connect(self.changeToRecentlySaved)
@@ -47,7 +48,8 @@ class Runner():
                 else :
                     self.switcher[i].setStyleSheet("")
     def clearScrollArea(self,layout):
-        
+        if(layout.count()==0):
+            return
         for i in reversed(range(layout.count())): 
             item = layout.itemAt(i).widget()
             print(str(i)+" : "+str(item))
@@ -67,9 +69,10 @@ class Runner():
         self.clearScrollArea(layout)
 
         #Add Home Widgets
-        for i in range(0,len(self.homeWidgets)):
-            layout.addWidget(self.homeWidgets[i])
-        
+        boardPane = QWidget()
+        ui = Ui_boardPane()
+        ui.setupUi(boardPane)
+        layout.addWidget(boardPane)
 
         self.curnt="1"
 
