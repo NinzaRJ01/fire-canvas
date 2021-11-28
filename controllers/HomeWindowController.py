@@ -7,6 +7,11 @@ from components.HomeWindow import Ui_Home
 from components.RecentlySavedWid import Ui_recentlySavedFrame
 from components.AboutWidget import Ui_aboutWidget
 from components.BoardPaneWidget import Ui_boardPane
+from components.newmain import VideoThread, App
+
+from controllers import SimpleDrawingWindowController as sdwController
+
+
 class Runner():
     def __init__(self):
        
@@ -29,7 +34,7 @@ class Runner():
         self.ui.srcntSavedBtn.clicked.connect(self.changeToRecentlySaved)
         self.ui.homeBtn.clicked.connect(self.changeToHome)
         self.ui.aboutBtn.clicked.connect(self.changeToAbout)
-        # self.changeTemplateName()
+        
 
     # Will CHange Template Label Name :
     def changeTemplateName(self,name = "Template!"):
@@ -73,9 +78,11 @@ class Runner():
         ui = Ui_boardPane()
         ui.setupUi(boardPane)
         layout.addWidget(boardPane)
-
+        ui.whiteBoardPBtn.clicked.connect(self.changeToHelp)
+        ui.simpleDrawingPBtn.clicked.connect(self.showSimpleDrawingWindow)
         self.curnt="1"
-
+    
+        
     # Will Change Scroll Area's Child Widgets to Recenlty Saved Widget
     def changeToRecentlySaved(self):
         # If Pressed Once Is Does
@@ -113,6 +120,25 @@ class Runner():
         layout.addWidget(aboutWidget)
         
         self.curnt ="3"
+    def changeToHelp(self):
+        if self.curnt =="4":
+            return
+
+        
+        self.btnNumToUnderline(3)
+        layout = self.ui.horizontalLayout
+        #clear Widgets
+        self.clearScrollArea(layout)
+        
+        app =App()
+        layout.addWidget(app)
+        
+        self.curnt ="4"
+
+    def showSimpleDrawingWindow(self):
+        
+        self.sdWin = sdwController.Runner()
+        self.sdWin.show()
 
 if __name__ =="__main__":
     
