@@ -27,6 +27,7 @@ class WhiteBoard(qtw.QWidget):
         self.myPenColor = qtc.Qt.blue
         self.lastPoint = qtc.QPoint()
         self.image = qtg.QImage()
+        self.setAttribute(qtc.Qt.WA_TranslucentBackground)
     
     def mousePressEvent(self, event):
         if event.button() == qtc.Qt.LeftButton:
@@ -72,11 +73,22 @@ class WhiteBoard(qtw.QWidget):
         if image.size() == newSize:
             return
 
-        newImage = qtg.QImage(newSize, qtg.QImage.Format_RGB32)
-        newImage.fill(qtg.qRgb(255, 255, 255))
+        newImage = qtg.QImage(newSize, qtg.QImage.Format_ARGB32)
+        newImage.fill(qtg.QColor(0,0,0,50))
         painter = qtg.QPainter(newImage)
         painter.drawImage(qtc.QPoint(0, 0), image)
         self.image = newImage
+    @qtc.pyqtSlot()
+    def saveImg(self):
+        imageToSave = qtg.QImage(self.image.size(),qtg.QImage.Format_ARGB32)
+        # imageToSave.fill(qtg.qRgb(255,255,255))
+        painter = qtg.QPainter(imageToSave)
+        painter.drawImage(qtc.QPoint(0,0),self.image)
+        filePath, _ = qtw.QFileDialog.getSaveFileName(self, "Save Image", "",
+                         "PNG(*.png);;JPEG(*.jpg *.jpeg);;All Files(*.*) ")
+ 
+        imageToSave.save(filePath)
+        painter.end()
 # main thread
 if __name__ == "__main__":
     import sys
