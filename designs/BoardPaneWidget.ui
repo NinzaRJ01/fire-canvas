@@ -57,57 +57,10 @@
         </property>
        </widget>
       </item>
-      <item alignment="Qt::AlignHCenter|Qt::AlignTop">
-       <widget class="QLabel" name="label_11">
+      <item>
+       <widget class="QPushButton" name="uiDesginPBtn">
         <property name="text">
-         <string>UiDesign</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item>
-    <widget class="QFrame" name="whiteBoardFrame">
-     <layout class="QVBoxLayout" name="whiteboardVBox">
-      <item alignment="Qt::AlignHCenter">
-       <widget class="QLabel" name="imgLabelWhiteBoard">
-        <property name="minimumSize">
-         <size>
-          <width>300</width>
-          <height>300</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>300</width>
-          <height>300</height>
-         </size>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="pixmap">
-         <pixmap>../assets/WhiteBoardThumbNail.png</pixmap>
-        </property>
-        <property name="scaledContents">
-         <bool>true</bool>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-        <property name="wordWrap">
-         <bool>false</bool>
-        </property>
-        <property name="margin">
-         <number>20</number>
-        </property>
-       </widget>
-      </item>
-      <item alignment="Qt::AlignHCenter|Qt::AlignTop">
-       <widget class="QLabel" name="label_9">
-        <property name="text">
-         <string>White Board</string>
+         <string>UI Design</string>
         </property>
        </widget>
       </item>
@@ -151,10 +104,57 @@
         </property>
        </widget>
       </item>
-      <item alignment="Qt::AlignHCenter|Qt::AlignTop">
-       <widget class="QLabel" name="label_7">
+      <item>
+       <widget class="QPushButton" name="simpleDrawingPBtn">
         <property name="text">
-         <string>Simple Drawing</string>
+         <string>SimpleDrawing</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QFrame" name="whiteBoardFrame">
+     <layout class="QVBoxLayout" name="whiteboardVBox">
+      <item alignment="Qt::AlignHCenter">
+       <widget class="QLabel" name="imgLabelWhiteBoard">
+        <property name="minimumSize">
+         <size>
+          <width>300</width>
+          <height>300</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>300</width>
+          <height>300</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap>../assets/WhiteBoardThumbNail.png</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="wordWrap">
+         <bool>false</bool>
+        </property>
+        <property name="margin">
+         <number>20</number>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="whiteBoardPBtn">
+        <property name="text">
+         <string>WhiteBoard</string>
         </property>
        </widget>
       </item>
