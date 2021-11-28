@@ -27,6 +27,7 @@ class Runner():
         self.handTracking.moveToThread(self.trackingThread)
         self.putMe.addWidget(self.imageViewerWidget)
         
+        
         self.wb = WhiteBoard()
         self.putMe.addWidget(self.wb)
         self.putMe.setStackingMode(QStackedLayout.StackAll)

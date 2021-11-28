@@ -38,8 +38,7 @@ class HandTracker(QObject):
                 continue
             #Resizes Image
             image = cv2.flip(image, 1)
-            image = cv2.resize(image, )
-
+            image = cv2.resize(image,(1080,700))
             # To improve performance, optionally mark the image as not writeable to
             # pass by reference.
             image.flags.writeable = False
@@ -81,9 +80,10 @@ class HandTracker(QObject):
     
             if cv2.waitKey(5) & 0xFF == 27:
                 break
+        self.cap = cap
         closeCap(cap)
     def closeCap(self,cap):
-        cap.release()
+        self.cap.release()
     def printCor(self,results, image):
       image_height, image_width, _ = image.shape
       mp_hands = self.mp_hands

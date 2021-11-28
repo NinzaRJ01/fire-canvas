@@ -31,6 +31,8 @@ def run():
         if cap is None or not cap.isOpened():
             print('Warning: unable to open video source: ', source)
             sys.exit()
+        cap.release()
+        
         _translate = QCoreApplication.translate
         ui.infoLabel.setText(_translate("launcherFrame", "<html><head/><body><p><span style=\" font-size:11pt;\">Checking Camera Permissions And Dependencies<span> </p></body></html>\n "))
         for i in range(40,100):

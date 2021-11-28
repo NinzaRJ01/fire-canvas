@@ -7,7 +7,7 @@ from components.HomeWindow import Ui_Home
 from components.RecentlySavedWid import Ui_recentlySavedFrame
 from components.AboutWidget import Ui_aboutWidget
 from components.BoardPaneWidget import Ui_boardPane
-from components.newmain import VideoThread, App
+# from components.newmain import VideoThread, App
 
 from controllers import SimpleDrawingWindowController as sdwController
 
@@ -125,13 +125,13 @@ class Runner():
             return
 
         
-        self.btnNumToUnderline(3)
-        layout = self.ui.horizontalLayout
-        #clear Widgets
-        self.clearScrollArea(layout)
+        # self.btnNumToUnderline(3)
+        # layout = self.ui.horizontalLayout
+        # #clear Widgets
+        # self.clearScrollArea(layout)
         
-        app =App()
-        layout.addWidget(app)
+        # app =App()
+        # layout.addWidget(app)
         
         self.curnt ="4"
 
