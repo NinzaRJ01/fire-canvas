@@ -6,6 +6,8 @@ from PyQt5.QtWidgets  import *
 
 class HandTracker(QObject):
     VideoSignal = pyqtSignal(QImage)
+    drawSignal = pyqtSignal(QPoint)
+    resetFirstSignal = pyqtSignal()
     mp_drawing = mp.solutions.drawing_utils
     mp_drawing_styles = mp.solutions.drawing_styles
     mp_hands = mp.solutions.hands
@@ -17,11 +19,16 @@ class HandTracker(QObject):
                 max_num_hands=1,
                 min_detection_confidence=0.5,
                 min_tracking_confidence=0.5)
+        self.resetStartPoint=True
+        
+        
+        
         
 
     @pyqtSlot()
     def startTracking(self):
-        cap = cv2.VideoCapture(0)
+        self.cap = cv2.VideoCapture(0)
+        cap = self.cap
         hands = self.hands
         mp_hands = self.mp_hands
         mp_drawing = self.mp_drawing
@@ -38,7 +45,7 @@ class HandTracker(QObject):
                 continue
             #Resizes Image
             image = cv2.flip(image, 1)
-            image = cv2.resize(image,(1080,700))
+            # image = cv2.resize(image,(1080,700))
             # To improve performance, optionally mark the image as not writeable to
             # pass by reference.
             image.flags.writeable = False
@@ -74,56 +81,73 @@ class HandTracker(QObject):
 			   						QImage.Format_RGB888)
 
             pixmap = QPixmap(qt_image)
-            qt_image = pixmap.scaled(1000, 600, Qt.KeepAspectRatio)
+            qt_image = pixmap.scaled(width,height,Qt.KeepAspectRatio)
             qt_image = QImage(qt_image)
             self.VideoSignal.emit(qt_image)
     
             if cv2.waitKey(5) & 0xFF == 27:
                 break
-        self.cap = cap
-        closeCap(cap)
-    def closeCap(self,cap):
+        # self.cap = cap
+        self.closeCap()
+    
+    def closeCap(self):
         self.cap.release()
+
     def printCor(self,results, image):
-      image_height, image_width, _ = image.shape
-      mp_hands = self.mp_hands
-      if results.multi_hand_landmarks:
-          for hand_landmarks in results.multi_hand_landmarks:
+        image_height, image_width, _ = image.shape
+        mp_hands = self.mp_hands
+        if results.multi_hand_landmarks:
+            for hand_landmarks in results.multi_hand_landmarks:
             #  print(
             #     f'Index finger tip coordinates: (',
             #     f'{hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP].x * image_width}, '
             #     f'{hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP].y * image_height})'
             #  )
-             if (hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP].y * image_height > hand_landmarks.landmark[mp_hands.HandLandmark.MIDDLE_FINGER_TIP].y * image_height) :
-                 if hand_landmarks.landmark[mp_hands.HandLandmark.MIDDLE_FINGER_TIP].y < hand_landmarks.landmark[mp_hands.HandLandmark.MIDDLE_FINGER_DIP].y:
-                    print("PICK ")
+                if (hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP].y * image_height > hand_landmarks.landmark[mp_hands.HandLandmark.MIDDLE_FINGER_TIP].y * image_height) :
+                    if hand_landmarks.landmark[mp_hands.HandLandmark.MIDDLE_FINGER_TIP].y < hand_landmarks.landmark[mp_hands.HandLandmark.MIDDLE_FINGER_DIP].y:
+                        x = hand_landmarks.landmark[mp_hands.HandLandmark.MIDDLE_FINGER_TIP].x * image_width
+                        y = hand_landmarks.landmark[mp_hands.HandLandmark.MIDDLE_FINGER_TIP].y * image_height
+                        point = QPoint(x,y)
+                        print("Ok")
+                        self.drawSignal.emit(point)
+                        
+                        self.resetStartPoint= False
+                else :
+                    if(self.resetStartPoint==False):
+                        #Ressting First
+                            self.resetStartPoint = True
+                            self.resetFirstSignal.emit()
+
+                        
     def __exit__(self):
+        self.closeCap()
         self.hands.close()
 
 class ImageViewer(QWidget):
-	def __init__(self, parent = None):
-		super(ImageViewer, self).__init__(parent)
-		self.image = QImage()
-		self.setAttribute(Qt.WA_OpaquePaintEvent)
+    def __init__(self, parent = None):
+        super(ImageViewer, self).__init__(parent)
+        self.image = QImage()
+        self.setAttribute(Qt.WA_OpaquePaintEvent)
 
 
+    def paintEvent(self, event):
+        painter = QPainter(self)
+        painter.drawImage(0,0, self.image)
+        self.image = QImage()
+        self.image.scaled(self.size())
 
-	def paintEvent(self, event):
-		painter = QPainter(self)
-		painter.drawImage(0,0, self.image)
-		self.image = QImage()
+    def initUI(self):
+    	self.setWindowTitle('Test')
 
-	def initUI(self):
-		self.setWindowTitle('Test')
+    @pyqtSlot(QImage)
+    def setImage(self, image):
+        if image.isNull():
+    	    print("viewer dropped frame!")
+        
+        # painter = QPainter()
 
-	
-	@pyqtSlot(QImage)
-	def setImage(self, image):
-		if image.isNull():
-			print("viewer dropped frame!")
-
-		self.image = image
-		# if image.size() != self.size():
-		# 	# self.setFixedSize(self.size())
-		# 	self.image.scaled(self.size())
-		self.update()
+        self.image = image
+        if image.size() != self.size():
+        	self.setFixedSize(self.size())
+        	# self.image.scaled(self.size())
+        self.update()
