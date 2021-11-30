@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>717</width>
+    <width>734</width>
     <height>454</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Simple Drawing Window</string>
   </property>
   <property name="styleSheet">
    <string notr="true">QPushButton{
@@ -86,7 +86,7 @@
           <number>2</number>
          </property>
          <item>
-          <widget class="QPushButton" name="pushButton_3">
+          <widget class="QPushButton" name="sizeSelectionBtn">
            <property name="cursor">
             <cursorShape>PointingHandCursor</cursorShape>
            </property>
@@ -96,7 +96,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton_4">
+          <widget class="QPushButton" name="colorSelectionBtn">
            <property name="cursor">
             <cursorShape>PointingHandCursor</cursorShape>
            </property>
@@ -116,7 +116,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton_2">
+          <widget class="QPushButton" name="textSelectionBtn">
            <property name="cursor">
             <cursorShape>PointingHandCursor</cursorShape>
            </property>
@@ -139,7 +139,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton">
+       <widget class="QPushButton" name="uploadBtn">
         <property name="text">
          <string>Upload</string>
         </property>
@@ -150,13 +150,27 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_5">
+       <widget class="QPushButton" name="exportBtn">
         <property name="text">
          <string>Export</string>
         </property>
         <property name="icon">
          <iconset>
           <normaloff>../assets/exportBtnIcon.png</normaloff>../assets/exportBtnIcon.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="layoutSwitch">
+        <property name="text">
+         <string>Switch</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="clearAllBtn">
+        <property name="text">
+         <string>ClearAll</string>
         </property>
        </widget>
       </item>
@@ -184,7 +198,7 @@
      <property name="styleSheet">
       <string notr="true"/>
      </property>
-     <widget class="QWidget" name="verticalStackedWidgetPage1" native="true">
+     <widget class="QWidget" name="verticalStackedWidgetPage1">
       <layout class="QVBoxLayout" name="verticalLayout"/>
      </widget>
     </widget>
