@@ -32,6 +32,8 @@ class WhiteBoard(qtw.QWidget):
         self.setAttribute(qtc.Qt.WA_TranslucentBackground)
         self.backUpImage = {"val":False,"image":-1}
         self.first = True
+        self.modes = ["pen","line","rectangle"]
+        self.selectedMode = self.modes[0]
     def mousePressEvent(self, event):
         if event.button() == qtc.Qt.LeftButton:
             self.lastPoint = event.pos()
@@ -60,6 +62,9 @@ class WhiteBoard(qtw.QWidget):
         self.lastPoint = qtc.QPoint(endPoint)
     
     @pyqtSlot()
+    def setCurrentTool(self,num):
+        self.selectedMode = self.modes[num]
+    @pyqtSlot()
     def resetFirst(self):
         self.first = True
 
@@ -67,8 +72,43 @@ class WhiteBoard(qtw.QWidget):
     def drawLineUsingCoord(self,endPoint):
         print("Run")
         if self.first == True :
+            self.backUpImage = self.image
             self.startPoint = qtc.QPoint(endPoint.x()+1,endPoint.y()+1)
+            self.selectedMode = self.modes[1]
             self.first = False
+        
+        self.drawCurrentPosition(endPoint)
+        if(self.selectedMode==self.modes[0] and self.first==False):
+            self.drawUsingPen(endPoint)
+        if(self.selectedMode==self.modes[1] and self.first==False):
+            self.drawLine(endPoint)
+
+
+    def drawCurrentPosition(self,endPoint):
+        self.update()
+        self.image=qtg.QImage(self.backUpImage)
+        startPoint = self.startPoint
+        painter = qtg.QPainter(self.image)
+        painter.setPen(qtg.QPen(qtc.Qt.red, self.myPenWidth, qtc.Qt.SolidLine,
+                qtc.Qt.RoundCap, qtc.Qt.RoundJoin))
+        painter.drawEllipse(endPoint.x(),endPoint.y(),30,30)
+        rad = int(self.myPenWidth / 2 + 2)
+        self.update(qtc.QRect(startPoint, endPoint).normalized().adjusted(-rad, -rad, +rad, +rad))
+        painter.end()
+       
+
+    def drawLine(self,endPoint):
+        self.update()
+        self.image=qtg.QImage(self.backUpImage)
+        startPoint = self.startPoint
+        painter = qtg.QPainter(self.image)
+        painter.setPen(qtg.QPen(self.myPenColor, self.myPenWidth, qtc.Qt.SolidLine,
+                qtc.Qt.RoundCap, qtc.Qt.RoundJoin))
+        painter.drawLine(startPoint, endPoint)
+        rad = int(self.myPenWidth / 2 + 2)
+        self.update(qtc.QRect(startPoint, endPoint).normalized().adjusted(-rad, -rad, +rad, +rad))
+        painter.end()
+    def drawUsingPen(self, endPoint):
         startPoint = self.startPoint
         painter = qtg.QPainter(self.image)
         painter.setPen(qtg.QPen(self.myPenColor, self.myPenWidth, qtc.Qt.SolidLine,
@@ -79,6 +119,7 @@ class WhiteBoard(qtw.QWidget):
         rad = int(self.myPenWidth / 2 + 2)
         self.update(qtc.QRect(startPoint, endPoint).normalized().adjusted(-rad, -rad, +rad, +rad))
         self.startPoint = endPoint
+
     def paintEvent(self, event):
         painter = qtg.QPainter(self)
         dirtyRect = event.rect()
