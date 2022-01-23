@@ -10,12 +10,14 @@
   position: relative;
   margin: auto;
   border: solid #C5B0B0;
+  background: rgba(214, 216, 210, 0.733);
   /* border-style: solid; */
 }
 .mySlides >img{
   width: fit-content;
   filter: drop-shadow(20px 20px 4px rgba(0, 0, 0, 0.3));
   opacity: 1;
+
   /* transform: scale(0.7); */
 }
 .mySlides-first>img{
@@ -24,10 +26,11 @@
 }
 .mySlides-lap >img{
   transform: scale(1);
+ 
 }
 .mySlides-board >img{
   height: auto;
-  transform: translateY(-300px) scale(0.5) ;
+  transform: translateY(-200px) scale(0.5) ;
   width: auto;
 }
 
