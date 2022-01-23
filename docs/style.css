@@ -1,0 +1,179 @@
+button > a{color:white;}
+body {
+    font-family: "Ubuntu", sans-serif;
+    letter-spacing: 0.115em;
+}
+
+.content-body{
+    padding-top: 50px;
+}
+.nav-section>div{
+    background-color: #0C1542;
+    color : #FFFCFC;
+    padding:1vw;
+    padding-right: 10%;
+    padding-left: 10%;
+}
+.navbar > div >a{
+    color : white;
+}
+.navbar >div{
+    width: fit-content;
+    padding:20px;
+}
+
+.hero-section{
+    color:white;
+    background: linear-gradient(177deg, #17249F -52.19%, #BF2DC2 130.02%);
+    /* background-image: url("./img-resources-website/bg-hero.png"); */
+    /* background-pos ition: center; */
+    border-radius: 20px 20px 0px 0px;
+    overflow: visible;
+
+}
+
+.hero-section >div> .title{
+    overflow: visible;
+    background-image: url("./img-resources-website/bg-hero-title.png");
+    background-position: center;
+    background-size: contain;
+    background-clip: padding-box;
+    background-repeat: no-repeat;
+    /* background-size: 10vw; */
+    padding:100px;
+
+}
+.title >p {
+    background: linear-gradient(165.57deg, #7987CD 27.42%, #88D782 89.77%);
+    padding:10px;padding-left: 10%;padding-right: 10%;
+    border-radius: 200px;
+    width: 100%;min-width: 500px;
+}
+.hero-section > div{
+    padding: 5%;
+}
+/* Means All Sections */
+.content-body>div{
+    height:100vh;
+    max-height: 900px;
+}
+
+.slideshow-area{
+    /* width:100%; */
+    /* height: 100vh; */
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.desciption-and-install-area{
+    width: fit-content;
+}
+
+.join-us-section > div{
+    color:white;
+    transform: scale(0.9);
+    background: linear-gradient(177deg, #17249F -52.19%, #4eee1e75 130.02%);  
+    box-shadow: 0 4px 8px 0 rgba(39, 47, 167, 0.582);
+    transition: all 2s ease-in-out;
+    /* height: fit-content; */
+    max-height: 500px;
+}
+.join-us-section > div:hover{
+    /* transition: 1s; */
+    background: linear-gradient(177deg, #17249F -52.19%, #2df31bbb 130.02%);  
+    
+    transform: scale(1);
+}
+.join-us-section > img{
+    
+}
+.join-us-links{
+    transition: all 300ms;
+    opacity: 0;
+    
+}
+.join-us-section > div:hover>a> .join-us-links{
+    opacity: 1;
+}
+
+.doc-section{
+    padding: 20px;
+}
+
+.doc-rep-logos>img{
+    width:auto;
+    backdrop-filter: 20px;
+}
+.doc-rep-logos{
+   
+}
+.selected-file{
+    background-color: rgba(42, 61, 237, 0.226);
+    background-clip: content-box;
+    border: solid thick rgba(42, 61, 237, 0.548);
+    border-radius: 0px 50px 0px 0px;
+}
+footer {
+    padding-top: 2vh;
+    width: 100%;
+    background-color: #1e3161;
+}
+li>a{
+    text-decoration: none;
+    color:white;
+}
+ul{
+    list-style: none;
+}
+/* <_color section  */
+.file-purple{
+    padding-left: 10px;
+    background :rgba(42, 62, 237, 0.47);
+}
+.file-green{
+    background: rgba(102, 243, 79, 0.47);
+}
+.file-pink{
+    background: rgba(234, 38, 238, 0.47);
+}
+.green-glow-btn{
+    background: linear-gradient(180deg, #89D782 0%, #83B5A1 100%);
+    color : #FFFCFC;
+}
+.gray-glow-btn{
+    background: linear-gradient(180deg, #D4E1D3 0%, #C4CDC9 100%);
+    color : #6D6666;
+}
+.text-blue{
+    color: #83E2EF;
+}
+.text-red{
+    color: #FF5B5B;
+}
+.text-skin{
+    color: #FFA756;
+}
+/* color section _>end */
+
+/* <_ using ids section */
+#docs-place{
+    height: fit-content;
+    max-height: fit-content;
+}
+#install{
+    height: fit-content;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#join{
+    background-image: url("./img-resources-website/bg-joinus.png");
+    background-clip: content-box;
+    /* background-position: center; */
+    background-repeat: no-repeat;
+    /* background-attachment: scroll; */
+    background-size: cover;
+    margin-top: 0;
+    margin-bottom: 0;max-height: 500px;
+    
+    
+}
+/* using ids section_>end */
